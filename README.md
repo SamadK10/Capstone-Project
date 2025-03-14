@@ -53,6 +53,4 @@ The project follows these key steps:
    - Prioritize accurate fraud detection over overall accuracy.
    - Choose metrics that best reflect business objectives, such as precision, recall, and F1-score.
 
-## Conclusion
-By leveraging machine learning, this project aims to improve fraud detection accuracy, reduce false positives, and enhance security in credit card transactions.
 
