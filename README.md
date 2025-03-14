@@ -3,7 +3,7 @@
 ## Problem Statement
 The goal of this project is to predict fraudulent credit card transactions using machine learning models.
 
-This project analyzes customer-level data collected during a research collaboration between Worldline and the Machine Learning Group. The dataset, sourced from Kaggle (https://www.kaggle.com/mlg-ulb/creditcardfraud), contains 284,807 transactions, of which 492 are fraudulent. Due to the highly imbalanced nature of the dataset, proper handling is necessary before model building.
+This project analyzes customer-level data collected during a research collaboration between Worldline and the Machine Learning Group. The dataset, sourced https://kh3-ls-storage.s3.us-east-1.amazonaws.com/DS Project Guide Data Set/creditcard.csv, contains 284,807 transactions, of which 492 are fraudulent. Due to the highly imbalanced nature of the dataset, proper handling is necessary before model building.
 
 ## Business Problem Overview
 For banks, retaining high-value customers is a top priority. However, banking fraud poses a significant threat, resulting in financial losses and reduced customer trust. According to the Nilson Report (https://nilsonreport.com/upload/content_promo/The_Nilson_Report_Issue_1164.pdf), banking fraud was estimated to reach $30 billion worldwide by 2020. With the rise of digital payment methods, fraudulent transactions are also increasing in number and sophistication.
