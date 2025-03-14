@@ -1,56 +1,72 @@
-# Credit Card Fraud Detection Project
+# FindDefault - Credit Card Fraud Detection
 
 ## Problem Statement
-The goal of this project is to predict fraudulent credit card transactions using machine learning models.
+Credit card fraud is a significant issue in the financial sector, leading to financial losses and reduced consumer trust. The objective of this project is to develop a machine learning model that accurately identifies fraudulent credit card transactions.
 
-This project analyzes customer-level data collected during a research collaboration between Worldline and the Machine Learning Group. The dataset, sourced https://kh3-ls-storage.s3.us-east-1.amazonaws.com/DS Project Guide Data Set/creditcard.csv, contains 284,807 transactions, of which 492 are fraudulent. Due to the highly imbalanced nature of the dataset, proper handling is necessary before model building.
+## Dataset Source
+The dataset used in this project contains transactions made by European cardholders in September 2013. It consists of 284,807 transactions, of which only 492 are fraudulent (0.172%). The features have been transformed using Principal Component Analysis (PCA) to maintain confidentiality.
 
-## Business Problem Overview
-For banks, retaining high-value customers is a top priority. However, banking fraud poses a significant threat, resulting in financial losses and reduced customer trust. According to the Nilson Report (https://nilsonreport.com/upload/content_promo/The_Nilson_Report_Issue_1164.pdf), banking fraud was estimated to reach $30 billion worldwide by 2020. With the rise of digital payment methods, fraudulent transactions are also increasing in number and sophistication.
-
-In the banking industry, fraud detection using machine learning is crucial for proactive monitoring and fraud prevention. Machine learning helps reduce manual review efforts, costly chargebacks, and unnecessary transaction denials.
-
-## Understanding and Defining Fraud
-Credit card fraud involves unauthorized use of a credit card for financial gain. Common types of fraud include:
-- Skimming: Duplicating card information from the magnetic strip.
-- Manipulation or alteration of genuine cards.
-- Creation of counterfeit cards.
-- Stolen or lost credit cards.
-- Fraudulent telemarketing.
+Dataset Source: [Credit Card Fraud Detection Dataset](https://kh3-ls-storage.s3.us-east-1.amazonaws.com/DS%20Project%20Guide%20Data%20Set/creditcard.csv)
 
 ## Data Dictionary
-The dataset contains credit card transactions from European cardholders over two days in September 2013. It consists of 284,807 transactions, with only 492 classified as fraudulent. The dataset is highly imbalanced, with fraudulent transactions accounting for only 0.172% of the total.
-
-Features:
-- **Time**: Seconds elapsed between the first transaction and the current transaction.
+- **Time**: Seconds elapsed since the first transaction.
 - **Amount**: Transaction amount.
-- **V1 - V28**: Principal components obtained using PCA for confidentiality.
-- **Class**: Target variable (0 = legitimate transaction, 1 = fraudulent transaction).
+- **V1 - V28**: Anonymized numerical features from PCA transformation.
+- **Class**: Target variable (0 = Legitimate, 1 = Fraudulent).
 
 ## Project Pipeline
-The project follows these key steps:
-
 1. **Data Understanding**
-   - Load and inspect the dataset.
-   - Identify key features for model training.
-
+   - Load and explore the dataset.
+   - Identify missing values and data inconsistencies.
 2. **Exploratory Data Analysis (EDA)**
-   - Perform univariate and bivariate analyses.
-   - Check for skewness and address it if necessary.
-   - Identify class imbalance and plan for mitigation.
+   - Analyze class imbalance using visualizations.
+   - Study statistical distributions of features.
+3. **Data Preprocessing**
+   - Standardize the "Amount" feature using StandardScaler.
+   - Drop the "Time" column.
+   - Address class imbalance using Synthetic Minority Over-Sampling Technique (SMOTE).
+4. **Train-Test Split**
+   - Split the dataset into training (80%) and testing (20%) sets.
+5. **Model Selection & Training**
+   - Evaluate multiple models:
+     - Logistic Regression
+     - Random Forest Classifier
+     - Support Vector Machine (SVM)
+     - XGBoost
+   - Perform hyperparameter tuning using GridSearchCV.
+6. **Model Evaluation**
+   - Metrics Used:
+     - Accuracy
+     - Precision
+     - Recall (Sensitivity)
+     - F1-Score
+     - ROC-AUC Score
+   - Best Model: Random Forest Classifier
+   - Hyperparameters tuned: `n_estimators = 100`, `max_depth = None`
 
-3. **Train/Test Split**
-   - Split the dataset into training and testing sets.
-   - Use k-fold cross-validation to ensure balanced class representation.
+## Results
+- **Accuracy**: 99.6%
+- **Precision**: 92%
+- **Recall**: 91%
+- **F1-Score**: 91%
+- **ROC-AUC Score**: 98%
 
-4. **Model Building & Hyperparameter Tuning**
-   - Train different machine learning models.
-   - Fine-tune hyperparameters for optimal performance.
-   - Apply resampling techniques (e.g., SMOTE) to handle class imbalance.
+## Conclusion & Future Work
+### Key Takeaways:
+- The Random Forest Classifier performed best in detecting fraudulent transactions.
+- Feature scaling and data preprocessing significantly improved model performance.
+- The F1-score of 91% indicates strong predictive capability.
 
-5. **Model Evaluation**
-   - Use appropriate evaluation metrics.
-   - Prioritize accurate fraud detection over overall accuracy.
-   - Choose metrics that best reflect business objectives, such as precision, recall, and F1-score.
+### Future Improvements:
+- Implement real-time fraud detection using streaming data.
+- Experiment with deep learning techniques (e.g., LSTMs, Autoencoders).
+- Deploy the model via a cloud-based API for real-time transaction monitoring.
+
+## Project Deliverables
+- **Notebook Folder**: Contains the Jupyter Notebook with exploratory data analysis and model building.
+- **Visuals Folder**: Contains graphs and visualizations of the dataset.
+- **Data Folder**: Contains the dataset.
+- **Model Folder**: Stores the trained model in `.pkl` format.
+- **FindDefault_Report**: Detailed project report.
 
 
